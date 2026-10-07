@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sorry, Priyanshi</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;1,400&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{--sky:#4fb3e8;--sky2:#bfe6fa;--deep:#1d6fa5;--ink:#12384f;--white:#fff;--card:rgba(255,255,255,.9);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#12384f}}
+:root[data-theme="dark"]{--ink:#12384f}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);font-family:'Nunito',system-ui,sans-serif;overflow-x:hidden;background:linear-gradient(180deg,#8fd3f4 0%,#d8f0fc 35%,#fff 70%);background-attachment:fixed;min-height:100vh}
+#sky{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.cloud{position:absolute;left:-220px;height:50px;width:140px;background:#fff;border-radius:50px;opacity:.85;animation:drift linear infinite}
+.cloud::before,.cloud::after{content:"";position:absolute;background:#fff;border-radius:50%}
+.cloud::before{width:60px;height:60px;top:-28px;left:22px}
+.cloud::after{width:75px;height:75px;top:-38px;left:62px}
+@keyframes drift{to{transform:translateX(calc(100vw + 460px))}}
+.bub{position:absolute;bottom:-30px;border-radius:50%;border:2px solid rgba(255,255,255,.9);background:rgba(255,255,255,.35);animation:up linear infinite}
+@keyframes up{to{transform:translateY(-115vh) translateX(30px);opacity:0}}
+.plane{position:absolute;top:18%;left:-80px;width:64px;animation:fly 14s linear infinite}
+@keyframes fly{0%{transform:translate(0,0) rotate(8deg)}50%{transform:translate(55vw,-40px) rotate(-6deg)}100%{transform:translate(115vw,20px) rotate(6deg)}}
+section{position:relative;z-index:1}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px}
+h1{font-family:'Fraunces',serif;font-size:clamp(32px,9.5vw,84px);max-width:100%;overflow-wrap:break-word;padding:0 8px;margin:0;color:var(--white);text-shadow:0 4px 0 var(--deep),0 10px 24px rgba(29,111,165,.45);line-height:1.05}
+h1 span{display:inline-block;opacity:0;transform:translateY(-60px);animation:drop .8s cubic-bezier(.3,1.5,.5,1) forwards}
+@keyframes drop{to{opacity:1;transform:none}}
+.w{display:inline-block;white-space:nowrap}
+.sub{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(19px,5vw,28px);margin:18px 0 0;color:var(--deep);opacity:0;animation:fade 1s 2s forwards}
+@keyframes fade{to{opacity:1}}
+.hint{margin-top:44px;color:var(--deep);font-weight:600;opacity:0;animation:fade 1s 2.6s forwards}
+.hint i{display:block;width:14px;height:14px;margin:8px auto 0;border-right:3px solid var(--deep);border-bottom:3px solid var(--deep);transform:rotate(45deg);animation:bob 1.5s infinite}
+@keyframes bob{50%{transform:translateY(9px) rotate(45deg)}}
+.letter{max-width:680px;margin:0 auto;padding:30px 20px 50px}
+.card{background:var(--card);border-radius:26px 26px 26px 6px;padding:26px 24px;margin:0 0 24px;line-height:1.85;font-size:16.5px;box-shadow:0 14px 34px rgba(29,111,165,.18);border-top:5px solid var(--sky);opacity:0;transform:translateX(-50px);transition:all .9s cubic-bezier(.2,.8,.2,1)}
+.card:nth-child(even){transform:translateX(50px);border-radius:26px 26px 6px 26px}
+.card.show{opacity:1;transform:none}
+.num{display:inline-block;margin-top:6px;font-size:26px;font-weight:600;color:var(--deep);text-decoration:none;letter-spacing:1px;border-bottom:3px dotted var(--sky)}
+.num:hover{animation:wob .5s}
+@keyframes wob{25%{transform:rotate(-3deg)}75%{transform:rotate(3deg)}}
+.end{text-align:center;padding:30px 20px 90px}
+.end h2{font-family:'Fraunces',serif;color:var(--deep);font-size:clamp(32px,8.5vw,54px);margin:0 0 22px}
+button{font:inherit;font-weight:600;background:var(--sky);color:#fff;border:0;padding:15px 36px;border-radius:40px;font-size:18px;cursor:pointer;box-shadow:0 10px 24px rgba(29,111,165,.4);transition:transform .2s;position:relative;overflow:hidden}
+button:hover{transform:scale(1.07)}button:active{transform:scale(.95)}
+button:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+button::after{content:"";position:absolute;top:0;left:-70%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:shine 3s infinite}
+@keyframes shine{to{left:130%}}
+#msg{margin-top:22px;font-family:'Fraunces',serif;font-style:italic;font-size:22px;color:var(--deep);min-height:34px}
+.pop{position:fixed;z-index:5;pointer-events:none;width:12px;height:12px;border-radius:50%;background:var(--sky);animation:pop 1.4s ease-out forwards}
+.pop.w{background:#fff;border:2px solid var(--sky)}
+@keyframes pop{to{transform:translate(var(--x),var(--y)) scale(.3);opacity:0}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-iteration-count:1!important;transition:none!important}.card{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div id="sky">
+  <svg class="plane" viewBox="0 0 64 40" aria-hidden="true"><path d="M2 20 L62 2 L40 38 L30 24 Z" fill="#fff" stroke="#1d6fa5" stroke-width="2" stroke-linejoin="round"/><path d="M30 24 L62 2" stroke="#1d6fa5" stroke-width="2"/></svg>
+</div>
+
+<section class="hero">
+  <h1 id="title" aria-label="Sorry, Priyanshi"></h1>
+  <p class="sub">From the bottom of my heart</p>
+  <div class="hint">scroll<i></i></div>
+</section>
+
+<section class="letter">
+  <div class="card">I know yanshiiiiiiiiiii.... I have spoken some words that have hurt you... And i understand that I shouldn't have speaked to you like that... That's why I want to apologise you from bottom of my heart...</div>
+  <div class="card">I know aapde khali vaat karta ne 4-5 divs thaya and hun game tem bolva ma comfortable thai gyo Tamara sathe... Pan mane tamri bau respect 6e... Have tame unblock kri ne vaat karso k khbr nahi pan I'm truly sorry whatever I speaked last night...</div>
+  <div class="card">Mane creep nathi banvu tamra pachd vara ghadiye sry sry kehva maate aetla mate aa ek special website banavi didhu jena thi ek vaar ma khbr pde k hun really sorry 6u... Mane tamri lagani ni chinta 6e... M thes pochadi 6e to mare efforts aapva pde...</div>
+  <div class="card">Ne haan jo tu agar mane unblock kri ne vaat kre 6e to hun promise karu 6u k hun pure puri koshish kris k tu jaya sudhi permission na aape tya sudhi gaad nai bolu ne mari boundry ma rais...</div>
+  <div class="card">Ne haan tame kadach have unblock na karo to bhi aa maro number 6e :- <a class="num" href="tel:7046613549">7046613549</a> tamne game tyare life ma kai pan jarur hoi k kai pan share karvanu man thai ne tamri pase koi na hoi pan hun hois... Hun tamne sabhdis tamne kai pan suggestion joiae to hun 6u... Tamre khali gusso utarva mate gaado devi hoi to pan hun sabhdis.... Mane tamari sathe vaat karvanu gamyu aetla mate efforts aapu chu...</div>
+  <div class="card">You must be thinking why I wrote yanshiiiiiiiiiii... Cause someone used to call you priye and I don't want to remind you that so giving a new name...</div>
+</section>
+
+<section class="end">
+  <h2>I'm truly sorry, Priyanshiiiiiiiiiii</h2>
+  <button id="btn">Tap to clear the sky</button>
+  <div id="msg" aria-live="polite"></div>
+</section>
+
+<script>
+var t=document.getElementById('title'),words=['Sorry,','Priyanshiiiiiiiiiii'],k=0;
+words.forEach(function(wd,wi){var g=document.createElement('span');g.className='w';for(var i=0;i<wd.length;i++){var s=document.createElement('span');s.textContent=wd[i];s.style.animationDelay=(0.2+(k++)*0.08)+'s';g.appendChild(s);}t.appendChild(g);if(wi<words.length-1)t.appendChild(document.createTextNode(' '));});
+var sky=document.getElementById('sky');
+for(var i=0;i<6;i++){var c=document.createElement('div');c.className='cloud';c.style.top=(6+Math.random()*70)+'%';c.style.transform='scale('+(0.6+Math.random()*0.9)+')';c.style.animationDuration=(40+Math.random()*50)+'s';c.style.animationDelay=(-Math.random()*60)+'s';sky.appendChild(c);}
+for(var i=0;i<16;i++){var b=document.createElement('div');b.className='bub';var z=10+Math.random()*28;b.style.width=b.style.height=z+'px';b.style.left=Math.random()*100+'%';b.style.animationDuration=(9+Math.random()*10)+'s';b.style.animationDelay=(-Math.random()*14)+'s';sky.appendChild(b);}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target);}})},{threshold:.2});
+document.querySelectorAll('.card').forEach(function(c){io.observe(c);});
+var msgs=['I am really sorry.','Thank you for reading this.','Wishing you happiness always.','No pressure, ever.'],n=0;
+document.getElementById('btn').addEventListener('click',function(e){
+  document.getElementById('msg').textContent=msgs[n++%msgs.length];
+  for(var i=0;i<22;i++){var p=document.createElement('div');p.className='pop'+(i%2?' w':'');p.style.left=e.clientX+'px';p.style.top=e.clientY+'px';var a=Math.random()*6.28,d=70+Math.random()*150;p.style.setProperty('--x',Math.cos(a)*d+'px');p.style.setProperty('--y',Math.sin(a)*d+'px');document.body.appendChild(p);setTimeout(function(x){x.remove()},1500,p);}
+});
+</script>
+</body>
+</html>
